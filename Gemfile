@@ -1,4 +1,6 @@
 source 'http://rubygems.org'
+gem 'foreman'
 gem 'rack'
 gem 'sinatra'
+gem 'unicorn'
 gem 'yomu'
