@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+gem 'httpclient'
 gem 'foreman'
 gem 'rack'
 gem 'sinatra'
