@@ -10,7 +10,7 @@ get '/extract?*' do
   url = URI::encode(params[:url])
   response = @@http_client.get(url, :follow_redirect => true)
   Timeout::timeout(60) {
-    text = safe_squeeze(Yomu.read(:text, response.body))
+    text = safe_squeeze(Yomu.read(:text_main, response.body))
   }
 end
 
