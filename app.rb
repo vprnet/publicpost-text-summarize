@@ -11,6 +11,10 @@ get '/extract?*' do
   response = @@http_client.get(url, :follow_redirect => true)
   Timeout::timeout(60) {
     text = safe_squeeze(Yomu.read(:text_main, response.body))
+    if text.split.size < 30
+      text = safe_squeeze(Yomu.read(:text, response.body))
+    end
+    return text
   }
 end
 
