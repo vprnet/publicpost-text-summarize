@@ -1,5 +1,6 @@
 source 'http://rubygems.org'
 gem 'foreman'
+gem 'json', '1.7.5'
 gem 'rack'
 gem 'sinatra'
 gem 'unicorn'
