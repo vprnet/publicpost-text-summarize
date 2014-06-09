@@ -57,7 +57,10 @@ get '/terms?*' do
     :universal_newline => true       # Always break lines with \n
   }
   text = text.encode Encoding.find('ASCII'), encoding_options
-  terms = TermExtract.extract(text)
+  terms = TermExtract.extract(text, :types => :nn)
+  unless terms.nil?
+    terms.keys.sort_by {|key, value| value}.reverse
+  end
   return "#{terms.to_json}"  
 end
 
@@ -71,6 +74,9 @@ post '/terms?*' do
     :universal_newline => true       # Always break lines with \n
   }
   text = text.encode Encoding.find('ASCII'), encoding_options
-  terms = TermExtract.extract(text)
+  terms = TermExtract.extract(text, :types => :nn)
+  unless terms.nil?
+    terms.keys.sort_by {|key, value| value}.reverse
+  end
   return "#{terms.to_json}"  
 end
